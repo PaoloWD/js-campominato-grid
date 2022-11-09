@@ -4,7 +4,7 @@ const select = document.querySelector("select");
 btnSbmit.addEventListener("click", function () {
   const grilContainer = document.querySelector(".gril-container");
   grilContainer.innerHTML = "";
-  const difficulty = select.options[select.selectedIndex].value;
+  const difficulty = select.value;
   const parseDifficulty = parseInt(difficulty);
   const counter = parseDifficulty * parseDifficulty;
 
