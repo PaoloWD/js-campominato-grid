@@ -49,6 +49,8 @@ btnSbmit.addEventListener("click", function () {
 
 btnReset.addEventListener("click", function () {
   const resetCell = document.querySelectorAll(".square");
+  death = 3;
+  countdown.innerHTML = `VITE RIMASTE : ${death}`;
   resetCell.forEach((square) => {
     square.classList.remove("bg-primary");
     square.classList.remove("bg-danger");
