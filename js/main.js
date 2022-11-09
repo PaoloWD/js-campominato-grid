@@ -8,47 +8,20 @@ btnSbmit.addEventListener("click", function () {
   grilContainer.innerHTML = "";
   let difficulty = select.options[select.selectedIndex].value;
   console.log(difficulty);
-  if (difficulty === "1") {
-    for (i = 1; i <= 100; i++) {
-      const cell = document.createElement("div");
-      cell.classList.add("square");
+  const parseDifficulty = parseInt(difficulty);
+  const counter = parseDifficulty * parseDifficulty;
 
-      cell.style.flexBasis = 100 / 10 + "%";
-      cell.innerHTML = i;
-      cell.addEventListener("click", function () {
-        cell.classList.toggle("bg-primary");
-        const numCell = parseInt(this.textContent);
-        console.log(numCell);
-      });
-      grilContainer.append(cell);
-    }
-  } else if (difficulty === "2") {
-    for (i = 1; i <= 81; i++) {
-      const cell = document.createElement("div");
-      cell.classList.add("square");
+  for (i = 1; i <= counter; i++) {
+    const cell = document.createElement("div");
+    cell.classList.add("square");
 
-      cell.style.flexBasis = 100 / 9 + "%";
-      cell.innerHTML = i;
-      cell.addEventListener("click", function () {
-        cell.classList.toggle("bg-primary");
-        const numCell = parseInt(this.textContent);
-        console.log(numCell);
-      });
-      grilContainer.append(cell);
-    }
-  } else {
-    for (i = 1; i <= 49; i++) {
-      const cell = document.createElement("div");
-      cell.classList.add("square");
-
-      cell.style.flexBasis = 100 / 7 + "%";
-      cell.innerHTML = i;
-      cell.addEventListener("click", function () {
-        cell.classList.toggle("bg-primary");
-        const numCell = parseInt(this.textContent);
-        console.log(numCell);
-      });
-      grilContainer.append(cell);
-    }
+    cell.style.flexBasis = 100 / parseDifficulty + "%";
+    cell.innerHTML = i;
+    cell.addEventListener("click", function () {
+      cell.classList.toggle("bg-primary");
+      const numCell = parseInt(this.textContent);
+      console.log(numCell);
+    });
+    grilContainer.append(cell);
   }
 });
