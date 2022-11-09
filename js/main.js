@@ -1,9 +1,11 @@
 const btnSbmit = document.querySelector(".btn-primary");
+const btnReset = document.querySelector(".btn-danger");
 const select = document.querySelector("select");
 
 btnSbmit.addEventListener("click", function () {
   const grilContainer = document.querySelector(".gril-container");
   grilContainer.innerHTML = "";
+  //.options[select.selectedIndex]
   const difficulty = select.value;
   const parseDifficulty = parseInt(difficulty);
   const counter = parseDifficulty * parseDifficulty;
@@ -21,4 +23,11 @@ btnSbmit.addEventListener("click", function () {
     });
     grilContainer.append(cell);
   }
+});
+
+btnReset.addEventListener("click", function () {
+  const resetCell = document.querySelectorAll(".square");
+  resetCell.forEach((square) => {
+    square.classList.remove("bg-primary");
+  });
 });
