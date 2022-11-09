@@ -2,8 +2,9 @@ const btnSbmit = document.querySelector(".btn-primary");
 const btnReset = document.querySelector(".btn-danger");
 const select = document.querySelector("select");
 const countdown = document.querySelector(".fw-bold");
-console.log(countdown);
+
 let death = 3;
+let winCond = 0;
 
 btnSbmit.addEventListener("click", function () {
   death = 3;
@@ -24,6 +25,17 @@ btnSbmit.addEventListener("click", function () {
 
     cell.addEventListener("click", function () {
       const win = cell.classList.toggle("bg-primary");
+      if (document.getElementsByClassName("bg-primary").length) {
+        winCond++;
+        if (winCond === counter - parseDifficulty) {
+          alert("hai vinto");
+        } else if (winCond === counter - (parseDifficulty + 1)) {
+          alert("hai vinto");
+        } else if (winCond === counter - (parseDifficulty + 2)) {
+          alert("hai vinto");
+        }
+      }
+
       const numCell = parseInt(this.textContent);
       console.log(numCell);
     });
@@ -35,9 +47,11 @@ btnSbmit.addEventListener("click", function () {
     const bombs = document.querySelector(
       `.gril-container :nth-child(${positionBombs})`
     );
+    console.log(bombs);
     bombs.addEventListener("click", function () {
-      bombs.classList.add("bg-danger");
       bombs.classList.remove("bg-primary");
+      bombs.classList.add("bg-danger");
+
       if (document.getElementsByClassName("bg-danger").length) {
         death--;
         countdown.innerHTML = `VITE RIMASTE : ${death}`;
