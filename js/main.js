@@ -6,6 +6,8 @@ console.log(countdown);
 let death = 3;
 
 btnSbmit.addEventListener("click", function () {
+  death = 3;
+  countdown.innerHTML = `VITE RIMASTE : ${death}`;
   const grilContainer = document.querySelector(".gril-container");
   grilContainer.innerHTML = "";
   //.options[select.selectedIndex]
@@ -21,7 +23,7 @@ btnSbmit.addEventListener("click", function () {
     cell.innerHTML = i;
 
     cell.addEventListener("click", function () {
-      cell.classList.toggle("bg-primary");
+      const win = cell.classList.toggle("bg-primary");
       const numCell = parseInt(this.textContent);
       console.log(numCell);
     });
