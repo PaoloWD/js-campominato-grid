@@ -1,6 +1,9 @@
 const btnSbmit = document.querySelector(".btn-primary");
 const btnReset = document.querySelector(".btn-danger");
 const select = document.querySelector("select");
+const countdown = document.querySelector(".fw-bold");
+console.log(countdown);
+let death = 3;
 
 btnSbmit.addEventListener("click", function () {
   const grilContainer = document.querySelector(".gril-container");
@@ -34,7 +37,11 @@ btnSbmit.addEventListener("click", function () {
       bombs.classList.add("bg-danger");
       bombs.classList.remove("bg-primary");
       if (document.getElementsByClassName("bg-danger").length) {
-        alert("SEI SCOPPIATO IN ARIA");
+        death--;
+        countdown.innerHTML = `VITE RIMASTE : ${death}`;
+        if (death === 0) {
+          alert("Hai finito le vite sei morto");
+        }
       }
     });
   }
