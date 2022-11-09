@@ -1,13 +1,10 @@
 const btnSbmit = document.querySelector(".btn-primary");
 const select = document.querySelector("select");
 
-console.log(select);
-
 btnSbmit.addEventListener("click", function () {
   const grilContainer = document.querySelector(".gril-container");
   grilContainer.innerHTML = "";
   let difficulty = select.options[select.selectedIndex].value;
-  console.log(difficulty);
   const parseDifficulty = parseInt(difficulty);
   const counter = parseDifficulty * parseDifficulty;
 
