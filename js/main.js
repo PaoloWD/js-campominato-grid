@@ -16,6 +16,7 @@ btnSbmit.addEventListener("click", function () {
 
     cell.style.flexBasis = 100 / parseDifficulty + "%";
     cell.innerHTML = i;
+
     cell.addEventListener("click", function () {
       cell.classList.toggle("bg-primary");
       const numCell = parseInt(this.textContent);
@@ -23,11 +24,30 @@ btnSbmit.addEventListener("click", function () {
     });
     grilContainer.append(cell);
   }
+  for (i = 1; i <= parseDifficulty; i++) {
+    const positionBombs = randomNum(1, counter);
+
+    const bombs = document.querySelector(
+      `.gril-container :nth-child(${positionBombs})`
+    );
+    bombs.addEventListener("click", function () {
+      bombs.classList.add("bg-danger");
+      bombs.classList.remove("bg-primary");
+      if (document.getElementsByClassName("bg-danger").length) {
+        alert("SEI SCOPPIATO IN ARIA");
+      }
+    });
+  }
 });
 
 btnReset.addEventListener("click", function () {
   const resetCell = document.querySelectorAll(".square");
   resetCell.forEach((square) => {
     square.classList.remove("bg-primary");
+    square.classList.remove("bg-danger");
   });
 });
+
+function randomNum(min, max) {
+  return Math.floor(Math.random() * (1 + max - min)) + min;
+}
