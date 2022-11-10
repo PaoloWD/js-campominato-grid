@@ -27,11 +27,14 @@ btnSbmit.addEventListener("click", function () {
       const win = cell.classList.toggle("bg-primary");
       if (document.getElementsByClassName("bg-primary").length) {
         winCond++;
-        if (winCond === counter - parseDifficulty) {
+        console.log("agg", winCond);
+        const win2 = counter - parseDifficulty;
+        console.log("sott win", win2);
+        if (winCond === win2) {
           alert("hai vinto");
-        } else if (winCond === counter - (parseDifficulty + 1)) {
+        } else if (winCond === win2 + 1) {
           alert("hai vinto");
-        } else if (winCond === counter - (parseDifficulty + 2)) {
+        } else if (winCond === win2 + 2) {
           alert("hai vinto");
         }
       }
@@ -54,6 +57,8 @@ btnSbmit.addEventListener("click", function () {
 
       if (document.getElementsByClassName("bg-danger").length) {
         death--;
+        winCond--;
+        console.log("rem", winCond);
         countdown.innerHTML = `VITE RIMASTE : ${death}`;
         if (death === 0) {
           alert("Hai finito le vite sei morto");
