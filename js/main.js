@@ -40,9 +40,14 @@ btnSbmit.addEventListener("click", function () {
     });
     grilContainer.append(cell);
   }
+
+  const bombsContainer = [];
   for (i = 1; i <= parseDifficulty; i++) {
     const positionBombs = randomNum(1, counter);
-
+    //controllo che non ci siano doppioni
+    if (!bombsContainer.includes(positionBombs)) {
+      bombsContainer.push(positionBombs);
+    }
     const bombs = document.querySelector(
       `.gril-container :nth-child(${positionBombs})`
     );
