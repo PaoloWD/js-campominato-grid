@@ -32,10 +32,6 @@ btnSbmit.addEventListener("click", function () {
         console.log("sott win", win2);
         if (winCond === win2) {
           alert("hai vinto");
-        } else if (winCond === win2 + 1) {
-          alert("hai vinto");
-        } else if (winCond === win2 + 2) {
-          alert("hai vinto");
         }
       }
 
